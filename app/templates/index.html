@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOUSING PRICES</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5 text-center">HOUSING PRICES</h2>
+        <h3 class="mt-5 text-center">MLOps</h3>
+        <h4 class="mt-5 text-center">Automação das Operações de CI/CD no Pipeline de Machine Learning e IA</h4>
+        <div class="card mt-4">
+            <div class="card-body text-center">
+                <h5 class="card-title">Instruções</h5>
+                <p class="card-text">Preencha os campos abaixo com os dados da residência e clique no botão para prever o preço da casa.</p>
+            </div>
+        </div>
+        
+        <form action="/predict" method="post" class="mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="longitude">Longitude</label>
+                        <input type="number" step="any" class="form-control" id="longitude" name="longitude" placeholder="Digite a longitude" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="latitude">Latitude</label>
+                        <input type="number" step="any" class="form-control" id="latitude" name="latitude" placeholder="Digite a latitude" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="housing_median_age">Idade da Casa</label>
+                        <input type="number" class="form-control" id="housing_median_age" name="housing_median_age" placeholder="Digite a idade da casa" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="total_rooms">Total de Cômodos</label>
+                        <input type="number" class="form-control" id="total_rooms" name="total_rooms" placeholder="Digite o total de cômodos" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="total_bedrooms">Total de Dormitórios</label>
+                        <input type="number" class="form-control" id="total_bedrooms" name="total_bedrooms" placeholder="Digite o total dormitórios" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="population">População Estimada do Bairro</label>
+                        <input type="number" class="form-control" id="population" name="population" placeholder="Digite a população estimada do bairro" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="households">Quantas Pessoas Vão Morar na Casa?</label>
+                        <input type="number" class="form-control" id="households" name="households" placeholder="Digite o numéro de moradores" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="median_income">Salário Total (Considerando Todos os Moradores)</label>
+                        <input type="number" step="any" class="form-control" id="median_income" name="median_income" placeholder="Digite o salário total" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Prever o Preço da Casa</button>
+            </div>
+        </form>
+        
+        {% if prediction_text %}
+            <div class="alert alert-success mt-4 text-center" role="alert">
+                <h4 class="alert-heading">{{ prediction_text }}</h4>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

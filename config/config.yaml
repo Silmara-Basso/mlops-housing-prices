@@ -1,0 +1,11 @@
+data:
+  raw_path: "dados/brutos/dataset.csv"
+  processed_path: "dados/processados"
+training:
+  test_size: 0.2
+  random_state: 42
+  param_dist: {}
+model:
+  path: "artefatos/optimized_xgboost_model.pkl"
+  scaler_path: "artefatos/scaler.pkl"
+  label_encoders_path: "artefatos/label_encoders.pkl"
